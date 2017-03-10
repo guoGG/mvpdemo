@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_action_bar_push" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@null"
+        android:gravity="start"
+        android:hint="@string/edittexthint"
+        android:padding="10dp"
+        android:textCursorDrawable="@null"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/push_imagetext_photo_ablum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:background="@drawable/photo_album_camera" />
+</LinearLayout>
