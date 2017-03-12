@@ -59,7 +59,9 @@ public class MainActivity extends BaseActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.main_fragment_page_switch, mMainHomeFragment, "首页")
-                .add(mMainMyFragment, "个人")
+                .add(R.id.main_fragment_page_switch, mMainMyFragment, "个人")
+                .show(mMainHomeFragment)
+                .hide(mMainMyFragment)
                 .commit();
     }
 

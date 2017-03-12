@@ -1,7 +1,8 @@
 package com.example.guojiawei.universitycircle.ui.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.Build;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -10,7 +11,6 @@ import com.example.guojiawei.universitycircle.R;
 import com.example.guojiawei.universitycircle.base.BaseActivity;
 import com.example.guojiawei.universitycircle.ui.MainActivity;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
@@ -19,7 +19,6 @@ import butterknife.OnClick;
  */
 
 public class LoginActivity extends BaseActivity {
-
 
     @InjectView(R.id.login_name_img)
     ImageView loginNameImg;
@@ -38,6 +37,10 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
         setContentView(R.layout.activity_login);
     }
 

@@ -4,9 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/action_bar"
-        layout="@layout/include_action_bar_onlytitle" />
 
     <LinearLayout
         android:id="@+id/main_bottom"
@@ -87,7 +84,6 @@
     <FrameLayout
         android:id="@+id/main_fragment_page_switch"
         android:layout_width="match_parent"
-        android:layout_below="@id/action_bar"
         android:layout_height="match_parent"
         android:layout_above="@id/main_bottom" />
 

@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.guojiawei.universitycircle.base.BaseActivity;
+import com.example.guojiawei.universitycircle.R;
 import com.example.guojiawei.universitycircle.base.BaseFragment;
 
 /**
@@ -16,7 +16,8 @@ import com.example.guojiawei.universitycircle.base.BaseFragment;
 public class FragmentMainMy extends BaseFragment {
     @Override
     public View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return null;
+        View rootView = inflater.inflate(R.layout.fragment_main_my, null);
+        return rootView;
     }
 
     @Override
