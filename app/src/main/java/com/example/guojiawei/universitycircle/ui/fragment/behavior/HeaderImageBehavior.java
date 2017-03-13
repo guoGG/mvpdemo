@@ -25,6 +25,7 @@ public class HeaderImageBehavior extends CoordinatorLayout.Behavior<ImageView> {
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, ImageView child, View dependency) {
+        Log.e("AAAAAA","ASSSSSS");
         return true;
     }
 }
