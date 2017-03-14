@@ -2,8 +2,10 @@ package com.example.guojiawei.universitycircle.ui.activity;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import com.example.guojiawei.universitycircle.contracts.LoginContracts;
 import com.example.guojiawei.universitycircle.ipresenter.ILoginPresenter;
 import com.example.guojiawei.universitycircle.ui.MainActivity;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
@@ -54,13 +57,6 @@ public class LoginActivity extends BaseActivity implements LoginContracts.LoginV
     }
 
 
-    @OnClick(R.id.login_btn)
-    public void onClick() {
-        if (getUserName() != null && getPassword() != null) {
-            mLoginPresenter.login();
-        }
-    }
-
     @Override
     public String getUserName() {
         if (TextUtils.isEmpty(loginEtUsername.getText().toString())) {
@@ -84,11 +80,29 @@ public class LoginActivity extends BaseActivity implements LoginContracts.LoginV
 
     @Override
     public void loginSuccess() {
+        showToast("登陆成功");
         startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void loginFail() {
         showToast("登陆失败，请检测输入内容");
+    }
+
+
+    @OnClick({R.id.login_btn, R.id.login_btn_forget_pwd, R.id.login_btn_forget_regiest})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.login_btn:
+                if (getUserName() != null && getPassword() != null) {
+                    mLoginPresenter.login();
+                }
+                break;
+            case R.id.login_btn_forget_pwd:
+                break;
+            case R.id.login_btn_forget_regiest:
+                startActivity(new Intent(this, RegiestActivity.class));
+                break;
+        }
     }
 }

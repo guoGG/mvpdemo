@@ -3,8 +3,11 @@ package com.example.guojiawei.universitycircle.ipresenter;
 import com.example.guojiawei.universitycircle.contracts.LoginContracts;
 import com.example.guojiawei.universitycircle.entity.User;
 
+import java.util.List;
+
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -23,15 +26,19 @@ public class ILoginPresenter implements LoginContracts.LoginPresenter {
     @Override
     public void login() {
         BmobQuery<User> bmobQuery = new BmobQuery<User>();
-        bmobQuery.getObject(mView.getUserName(), new QueryListener<User>() {
+        bmobQuery.addWhereEqualTo("name", mView.getUserName());
+        bmobQuery.findObjects(new FindListener<User>() {
             @Override
-            public void done(User object, BmobException e) {
+            public void done(List<User> list, BmobException e) {
                 if (e == null) {
-                    if (object.getPassword().equals(mView.getPassword())) {
-                        mView.loginSuccess();
-                    } else {
-                        mView.loginFail();
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i).getPassword().equals(mView.getPassword())) {
+                            mView.loginSuccess();
+                        } else {
+                            mView.loginFail();
+                        }
                     }
+
                 } else {
                     mView.loginFail();
                 }

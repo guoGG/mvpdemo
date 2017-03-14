@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.guojiawei.universitycircle.R;
 import com.example.guojiawei.universitycircle.base.BaseActivity;
+import com.example.guojiawei.universitycircle.contracts.PushMessageContracts;
 import com.example.guojiawei.universitycircle.util.GlideUtil;
 
 import butterknife.InjectView;
@@ -16,7 +17,7 @@ import butterknife.OnClick;
  * Created by guojiawei on 2017/3/8.
  */
 
-public class PushImageTextActivity extends BaseActivity {
+public class PushImageTextActivity extends BaseActivity implements PushMessageContracts.PushMessageView{
     @InjectView(R.id.push_btn_cancle)
     TextView pushBtnCancle;
     @InjectView(R.id.push_btn_push)
@@ -57,5 +58,25 @@ public class PushImageTextActivity extends BaseActivity {
                 GlideUtil.loadUrlImage(this, imgPath, pushImagetextPhotoAblum);
             }
         }
+    }
+
+    @Override
+    public String getPushMess() {
+        return null;
+    }
+
+    @Override
+    public String getPushImage() {
+        return null;
+    }
+
+    @Override
+    public void pushSuccess() {
+
+    }
+
+    @Override
+    public void pushFail() {
+
     }
 }

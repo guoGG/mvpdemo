@@ -11,6 +11,10 @@ public class User extends BmobObject {
     private String password;
     private String address;
     private String authCode;
+    private int sex;
+    private String school;
+    private String headerImage;
+
 
     @Override
     public void setTableName(String tableName) {
@@ -47,5 +51,29 @@ public class User extends BmobObject {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getHeaderImage() {
+        return headerImage;
+    }
+
+    public void setHeaderImage(String headerImage) {
+        this.headerImage = headerImage;
     }
 }

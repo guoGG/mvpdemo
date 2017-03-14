@@ -28,19 +28,21 @@ public class IRegiestPresenter implements RegiestContracts.RegiestPresenter {
 
     @Override
     public void sendCode() {
+        //初始化短信服务
+        BmobSMS.initialize((Context) mView, "0e1d3a7195b876bdf132f72195605df7");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String sendTime = format.format(new Date());
-        BmobSMS.requestSMS((Context) mView, mView.getUserName(), "注册验证", sendTime, new RequestSMSCodeListener() {
+        BmobSMS.requestSMSCode((Context) mView, mView.getUserName(), "注册验证", new RequestSMSCodeListener() {
 
             @Override
             public void done(Integer smsId, BmobException ex) {
                 // TODO Auto-generated method stub
                 if (ex == null) {//
                     mView.sendAuthCodeSuccess();
-                    Log.i("bmob", "短信发送成功，短信id：" + smsId);//用于查询本次短信发送详情
+                    Log.e("bmob", "短信发送成功，短信id：" + smsId);//用于查询本次短信发送详情
                 } else {
                     mView.sendAuthCodeFail();
-                    Log.i("bmob", "errorCode = " + ex.getErrorCode() + ",errorMsg = " + ex.getLocalizedMessage());
+                    Log.e("bmob", "errorCode = " + ex.getErrorCode() + ",errorMsg = " + ex.getLocalizedMessage());
                 }
             }
         });
@@ -55,9 +57,9 @@ public class IRegiestPresenter implements RegiestContracts.RegiestPresenter {
         user.save(new SaveListener<String>() {
             @Override
             public void done(String s, cn.bmob.v3.exception.BmobException e) {
-                if(e==null){
+                if (e == null) {
                     mView.regiestSuccess();
-                }else{
+                } else {
                     mView.regiestFail();
                 }
             }

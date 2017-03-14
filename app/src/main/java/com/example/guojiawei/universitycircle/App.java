@@ -16,8 +16,6 @@ public class App extends Application {
         super.onCreate();
         //第一：默认初始化
         Bmob.initialize(this, "0e1d3a7195b876bdf132f72195605df7");
-        //初始化短信服务
-        BmobSMS.initialize(this, "0e1d3a7195b876bdf132f72195605df7");
 
     }
 }
