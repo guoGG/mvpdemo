@@ -11,7 +11,9 @@ public class PushMessageContracts {
     public interface PushMessageView extends BaseView {
         String getPushMess();
 
-        String getPushImage();
+        String getPushImagePath();
+
+        void upLoadImgProgress(int value);
 
         void pushSuccess();
 

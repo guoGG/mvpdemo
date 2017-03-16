@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.guojiawei.universitycircle.R;
+import com.example.guojiawei.universitycircle.entity.Message;
+import com.example.guojiawei.universitycircle.util.GlideUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,7 @@ import butterknife.InjectView;
 
 public class AdapterMainList extends RecyclerView.Adapter {
 
-    private List mData = new ArrayList();
+    private List<Message> mData = new ArrayList();
     private Context mContext;
     private LayoutInflater inflater;
 
@@ -31,20 +33,29 @@ public class AdapterMainList extends RecyclerView.Adapter {
         inflater = LayoutInflater.from(context);
     }
 
-    public void addItems(ArrayList datas) {
+    public void addItems(List<Message> datas) {
         this.mData.addAll(datas);
         notifyDataSetChanged();
+    }
+
+    public void refreshItems(List<Message> datas) {
+        this.mData.clear();
+        this.mData.addAll(datas);
+        notifyItemChanged(0);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.item_main_list, parent, false);
-        return new ViewHolder(view);
+        return new MainItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+        MainItemViewHolder h = (MainItemViewHolder) holder;
+        GlideUtil.loadUrlImage(mContext, mData.get(position).getMsgImage(), h.itemMainListIcImg);
+        h.itemMainListTvContent.setText(mData.get(position).getMsgContent());
+        h.itemMainListTvTime.setText(mData.get(position).getCreatedAt());
     }
 
     @Override
@@ -52,7 +63,7 @@ public class AdapterMainList extends RecyclerView.Adapter {
         return mData.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    static class MainItemViewHolder extends RecyclerView.ViewHolder {
         @InjectView(R.id.item_main_list_ic_header)
         ImageView itemMainListIcHeader;
         @InjectView(R.id.item_main_list_tv_name)
@@ -64,7 +75,7 @@ public class AdapterMainList extends RecyclerView.Adapter {
         @InjectView(R.id.item_main_list_ic_img)
         ImageView itemMainListIcImg;
 
-        ViewHolder(View view) {
+        MainItemViewHolder(View view) {
             super(view);
             ButterKnife.inject(this, view);
         }
