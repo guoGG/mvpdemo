@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,14 +21,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by guojiawei on 2017/3/7.
  */
 
 public class PhotoAlbumActivity extends BaseActivity {
-    @InjectView(R.id.photo_album_recyclerview)
+    @BindView(R.id.photo_album_recyclerview)
     RecyclerView photoAlbumRecyclerview;
     public static String IMAGE_PATH = "imagepath";
     private List<String> mImgPaths = null;
@@ -58,7 +60,7 @@ public class PhotoAlbumActivity extends BaseActivity {
                 if (position == 0) {
                     startCamera();
                 } else {
-                    setResult(1, new Intent().putExtra(IMAGE_PATH, photoAlbumAdapter.getmDatas().get(position-1
+                    setResult(1, new Intent().putExtra(IMAGE_PATH, photoAlbumAdapter.getmDatas().get(position - 1
                     )));
                     finish();
                 }
@@ -132,6 +134,5 @@ public class PhotoAlbumActivity extends BaseActivity {
 
         }
     }
-
 
 }

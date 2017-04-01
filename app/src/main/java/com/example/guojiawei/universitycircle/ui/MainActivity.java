@@ -1,6 +1,7 @@
 package com.example.guojiawei.universitycircle.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -10,12 +11,12 @@ import android.widget.TextView;
 
 import com.example.guojiawei.universitycircle.R;
 import com.example.guojiawei.universitycircle.base.BaseActivity;
-import com.example.guojiawei.universitycircle.ui.activity.PhotoAlbumActivity;
 import com.example.guojiawei.universitycircle.ui.activity.PushImageTextActivity;
 import com.example.guojiawei.universitycircle.ui.fragment.FragmentMainHome;
 import com.example.guojiawei.universitycircle.ui.fragment.FragmentMainMy;
 
-import butterknife.InjectView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -23,27 +24,29 @@ import butterknife.OnClick;
  */
 
 public class MainActivity extends BaseActivity {
-    @InjectView(R.id.main_bottom_btn_ic_home)
-    ImageView mainBottomBtnIcHome;
-    @InjectView(R.id.main_bottom_btn_tv_home)
-    TextView mainBottomBtnTvHome;
-    @InjectView(R.id.main_bottom_btn_home)
-    LinearLayout mainBottomBtnHome;
-    @InjectView(R.id.main_bottom_btn_ic_push)
-    ImageView mainBottomBtnIcPush;
-    @InjectView(R.id.main_bottom_btn_push)
-    LinearLayout mainBottomBtnPush;
-    @InjectView(R.id.main_bottom_btn_ic_my)
-    ImageView mainBottomBtnIcMy;
-    @InjectView(R.id.main_bottom_btn_tv_my)
-    TextView mainBottomBtnTvMy;
-    @InjectView(R.id.main_bottom_btn_my)
-    LinearLayout mainBottomBtnMy;
-    @InjectView(R.id.activity_main)
-    RelativeLayout activityMain;
-    @InjectView(R.id.main_fragment_page_switch)
-    FrameLayout mainFragmentPageSwitch;
 
+    @BindView(R.id.main_bottom_btn_ic_home)
+    ImageView mainBottomBtnIcHome;
+    @BindView(R.id.main_bottom_btn_tv_home)
+    TextView mainBottomBtnTvHome;
+    @BindView(R.id.main_bottom_btn_home)
+    LinearLayout mainBottomBtnHome;
+    @BindView(R.id.main_bottom_btn_ic_push)
+    ImageView mainBottomBtnIcPush;
+    @BindView(R.id.main_bottom_btn_push)
+    LinearLayout mainBottomBtnPush;
+    @BindView(R.id.main_bottom_btn_ic_my)
+    ImageView mainBottomBtnIcMy;
+    @BindView(R.id.main_bottom_btn_tv_my)
+    TextView mainBottomBtnTvMy;
+    @BindView(R.id.main_bottom_btn_my)
+    LinearLayout mainBottomBtnMy;
+    @BindView(R.id.main_bottom)
+    LinearLayout mainBottom;
+    @BindView(R.id.main_fragment_page_switch)
+    FrameLayout mainFragmentPageSwitch;
+    @BindView(R.id.activity_main)
+    RelativeLayout activityMain;
     private FragmentMainHome mMainHomeFragment;
     private FragmentMainMy mMainMyFragment;
 

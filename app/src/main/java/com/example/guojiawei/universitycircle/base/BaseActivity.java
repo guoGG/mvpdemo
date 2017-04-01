@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by guojiawei on 2017/3/7.
@@ -24,18 +25,20 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public abstract void bindView();
 
+    private Unbinder unbinder;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
-        ButterKnife.inject(this);
+        unbinder = ButterKnife.bind(this);
         bindView();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.reset(this);
+        unbinder.unbind();
     }
 
     private void canclActionBar() {

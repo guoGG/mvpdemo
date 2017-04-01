@@ -15,8 +15,8 @@ import com.example.guojiawei.universitycircle.util.GlideUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by guojiawei on 2017/3/7.
@@ -64,20 +64,21 @@ public class AdapterMainList extends RecyclerView.Adapter {
     }
 
     static class MainItemViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.item_main_list_ic_header)
+
+        @BindView(R.id.item_main_list_ic_header)
         ImageView itemMainListIcHeader;
-        @InjectView(R.id.item_main_list_tv_name)
+        @BindView(R.id.item_main_list_tv_name)
         TextView itemMainListTvName;
-        @InjectView(R.id.item_main_list_tv_time)
+        @BindView(R.id.item_main_list_tv_time)
         TextView itemMainListTvTime;
-        @InjectView(R.id.item_main_list_tv_content)
+        @BindView(R.id.item_main_list_tv_content)
         TextView itemMainListTvContent;
-        @InjectView(R.id.item_main_list_ic_img)
+        @BindView(R.id.item_main_list_ic_img)
         ImageView itemMainListIcImg;
 
         MainItemViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }

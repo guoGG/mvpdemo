@@ -13,8 +13,8 @@ import com.example.guojiawei.universitycircle.base.BaseActivity;
 import com.example.guojiawei.universitycircle.contracts.RegiestContracts;
 import com.example.guojiawei.universitycircle.ipresenter.IRegiestPresenter;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
@@ -23,25 +23,25 @@ import butterknife.OnClick;
 
 public class RegiestActivity extends BaseActivity implements RegiestContracts.RegiestView {
 
-    @InjectView(R.id.regiest_et_username)
-    AppCompatEditText regiestEtUsername;
-    @InjectView(R.id.regiest_rl_name)
-    RelativeLayout regiestRlName;
-    @InjectView(R.id.regiest_et_authcode)
-    AppCompatEditText regiestEtAuthcode;
-    @InjectView(R.id.tl_code)
-    TextInputLayout tlCode;
-    @InjectView(R.id.regiest_btn_getcode)
-    TextView regiestBtnGetcode;
-    @InjectView(R.id.regiest_rl_code)
-    RelativeLayout regiestRlCode;
-    @InjectView(R.id.regiest_et_password)
-    AppCompatEditText regiestEtPassword;
-    @InjectView(R.id.regiest_rl_password)
-    RelativeLayout regiestRlPassword;
-    @InjectView(R.id.regiest_btn)
-    TextView regiestBtn;
 
+    @BindView(R.id.regiest_et_username)
+    AppCompatEditText regiestEtUsername;
+    @BindView(R.id.regiest_rl_name)
+    RelativeLayout regiestRlName;
+    @BindView(R.id.regiest_et_authcode)
+    AppCompatEditText regiestEtAuthcode;
+    @BindView(R.id.tl_code)
+    TextInputLayout tlCode;
+    @BindView(R.id.regiest_btn_getcode)
+    TextView regiestBtnGetcode;
+    @BindView(R.id.regiest_rl_code)
+    RelativeLayout regiestRlCode;
+    @BindView(R.id.regiest_et_password)
+    AppCompatEditText regiestEtPassword;
+    @BindView(R.id.regiest_rl_password)
+    RelativeLayout regiestRlPassword;
+    @BindView(R.id.regiest_btn)
+    TextView regiestBtn;
     private RegiestContracts.RegiestPresenter mRegiestPresenter;
 
     @Override
@@ -120,4 +120,5 @@ public class RegiestActivity extends BaseActivity implements RegiestContracts.Re
         showToast("验证码发送失败");
         regiestBtn.setEnabled(true);
     }
+
 }

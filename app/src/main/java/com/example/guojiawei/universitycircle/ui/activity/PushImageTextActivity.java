@@ -14,8 +14,8 @@ import com.example.guojiawei.universitycircle.contracts.PushMessageContracts;
 import com.example.guojiawei.universitycircle.ipresenter.IPushMessPresenter;
 import com.example.guojiawei.universitycircle.util.GlideUtil;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
@@ -23,15 +23,15 @@ import butterknife.OnClick;
  */
 
 public class PushImageTextActivity extends BaseActivity implements PushMessageContracts.PushMessageView {
-    @InjectView(R.id.push_btn_cancle)
-    TextView pushBtnCancle;
-    @InjectView(R.id.push_btn_push)
-    TextView pushBtnPush;
-    @InjectView(R.id.push_imagetext_photo_ablum)
-    ImageView pushImagetextPhotoAblum;
-    @InjectView(R.id.push_et_content)
-    AppCompatEditText pushEtContent;
 
+    @BindView(R.id.push_btn_cancle)
+    TextView pushBtnCancle;
+    @BindView(R.id.push_btn_push)
+    TextView pushBtnPush;
+    @BindView(R.id.push_et_content)
+    AppCompatEditText pushEtContent;
+    @BindView(R.id.push_imagetext_photo_ablum)
+    ImageView pushImagetextPhotoAblum;
     private String imgPath = null;
     private PushMessageContracts.PushMessagePresenter mPushMessagePresenter;
 
@@ -107,4 +107,5 @@ public class PushImageTextActivity extends BaseActivity implements PushMessageCo
         showToast("发布失败");
         pushBtnPush.setEnabled(true);
     }
+
 }

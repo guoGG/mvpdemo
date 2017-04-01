@@ -19,19 +19,20 @@ import com.example.guojiawei.universitycircle.widget.DividerItemDecoration;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by guojiawei on 2017/3/7.
  */
 
 public class FragmentMainHome extends BaseFragment implements MessagesContracts.MessagesView {
-    @InjectView(R.id.fragment_main_home_recyclerview)
-    RecyclerView fragmentMainHomeRecyclerview;
-    @InjectView(R.id.swiprefresh)
-    SwipeRefreshLayout swiprefresh;
 
+
+    @BindView(R.id.fragment_main_home_recyclerview)
+    RecyclerView fragmentMainHomeRecyclerview;
+    @BindView(R.id.swiprefresh)
+    SwipeRefreshLayout swiprefresh;
     private View rootView = null;
     private AdapterMainList mainListAdapter = null;
     private MessagesContracts.MessagesPresenter mMessagesView;
@@ -71,9 +72,5 @@ public class FragmentMainHome extends BaseFragment implements MessagesContracts.
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.reset(this);
-    }
+
 }

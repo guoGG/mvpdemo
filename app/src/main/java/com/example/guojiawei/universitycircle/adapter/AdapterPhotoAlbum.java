@@ -10,15 +10,14 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.bumptech.glide.Glide;
 import com.example.guojiawei.universitycircle.R;
 import com.example.guojiawei.universitycircle.util.GlideUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by guojiawei on 2017/3/7.
@@ -117,24 +116,24 @@ public class AdapterPhotoAlbum extends RecyclerView.Adapter {
     }
 
     static class CameraViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.photo_album_item_camera_btn)
+        @BindView(R.id.photo_album_item_camera_btn)
         ImageView photoAlbumItemCameraBtn;
 
         CameraViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 
     static class ImageViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.photo_album_item_img)
+        @BindView(R.id.photo_album_item_img)
         ImageView photoAlbumItemImg;
-        @InjectView(R.id.photo_album_item_img_check)
+        @BindView(R.id.photo_album_item_img_check)
         AppCompatCheckBox photoAlbumItemImgCheck;
 
         ImageViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }

@@ -16,8 +16,8 @@ import com.example.guojiawei.universitycircle.contracts.LoginContracts;
 import com.example.guojiawei.universitycircle.ipresenter.ILoginPresenter;
 import com.example.guojiawei.universitycircle.ui.MainActivity;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
@@ -25,21 +25,22 @@ import butterknife.OnClick;
  */
 
 public class LoginActivity extends BaseActivity implements LoginContracts.LoginView {
-    @InjectView(R.id.login_rl_name)
-    RelativeLayout loginRlName;
-    @InjectView(R.id.login_rl_password)
-    RelativeLayout loginRlPassword;
-    @InjectView(R.id.login_btn)
-    TextView loginBtn;
-    @InjectView(R.id.login_btn_forget_pwd)
-    TextView loginBtnForgetPwd;
-    @InjectView(R.id.login_btn_forget_regiest)
-    TextView loginBtnForgetRegiest;
-    @InjectView(R.id.login_et_username)
-    AppCompatEditText loginEtUsername;
-    @InjectView(R.id.login_et_password)
-    AppCompatEditText loginEtPassword;
 
+
+    @BindView(R.id.login_et_username)
+    AppCompatEditText loginEtUsername;
+    @BindView(R.id.login_rl_name)
+    RelativeLayout loginRlName;
+    @BindView(R.id.login_et_password)
+    AppCompatEditText loginEtPassword;
+    @BindView(R.id.login_rl_password)
+    RelativeLayout loginRlPassword;
+    @BindView(R.id.login_btn)
+    TextView loginBtn;
+    @BindView(R.id.login_btn_forget_pwd)
+    TextView loginBtnForgetPwd;
+    @BindView(R.id.login_btn_forget_regiest)
+    TextView loginBtnForgetRegiest;
     private LoginContracts.LoginPresenter mLoginPresenter = null;
 
     @Override
@@ -105,4 +106,6 @@ public class LoginActivity extends BaseActivity implements LoginContracts.LoginV
                 break;
         }
     }
+
+
 }
